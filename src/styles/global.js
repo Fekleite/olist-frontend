@@ -20,7 +20,7 @@ export default createGlobalStyle`
   }
 
   body {
-    background: var(--color-light-blue02);
+    background: #fff;
   }
 
   body, input, button{

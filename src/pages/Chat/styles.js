@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const Back = styled.div`
+  width: 100%;
+  height: 100vh;
+  background: var(--color-light-blue02);
+`;
+
 export const Container = styled.div`
   width: 50%;
   height: 100vh;
