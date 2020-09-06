@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import {
   Container,
@@ -8,11 +9,16 @@ import {
   Controlls,
   SkipButton,
   NextButton,
+  Balloon,
+  ChatBot,
+  ChatBalloon,
+  BotImage,
 } from "./styles";
 
 import NavBar from "../../components/NavBar";
 import Card from "../../components/Card";
 
+import ollie01 from "../../assets/ollie01.svg";
 import ollie02 from "../../assets/ollie02.svg";
 
 function Oboarding() {
@@ -22,9 +28,11 @@ function Oboarding() {
 
       <Content>
         <Bot>
-          <div>
-            <img src={ollie02} alt="" />
-          </div>
+          <img src={ollie02} alt="" />
+
+          <Balloon left={true}>
+            Sou a <strong>Ollie</strong>, lembra de mim?
+          </Balloon>
         </Bot>
 
         <h2>bem-vinda Caroline, dê seus primeiro passos com olist!</h2>
@@ -54,9 +62,21 @@ function Oboarding() {
 
         <Controlls>
           <SkipButton>Pular essa etapa</SkipButton>
-          <NextButton>Próximo</NextButton>
+          <NextButton>
+            <Link to="/steps">Próximo</Link>
+          </NextButton>
         </Controlls>
       </Content>
+
+      <ChatBot>
+        <ChatBalloon>
+          <strong>Precisando de ajuda?</strong>
+        </ChatBalloon>
+
+        <BotImage>
+          <img src={ollie01} alt="" />
+        </BotImage>
+      </ChatBot>
     </Container>
   );
 }
