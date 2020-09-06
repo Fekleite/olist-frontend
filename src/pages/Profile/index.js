@@ -84,7 +84,7 @@ function Profile() {
               <img src={badge02} alt="" />
             </Badges>
 
-            <Badges text="catálogo em dia">
+            <Badges text="catálogo atualizado">
               <img src={badge03} alt="" />
             </Badges>
 

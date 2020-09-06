@@ -105,6 +105,7 @@ export const Gallery = styled.div`
     background: var(--color-primary);
     border-radius: 4px;
     padding: 0.8rem;
+    cursor: pointer;
   }
 `;
 
