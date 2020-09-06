@@ -10,15 +10,12 @@ import {
   SkipButton,
   NextButton,
   Balloon,
-  ChatBot,
-  ChatBalloon,
-  BotImage,
 } from "./styles";
 
 import NavBar from "../../components/NavBar";
 import Card from "../../components/Card";
+import BotHelp from "../../components/BotHelp";
 
-import ollie01 from "../../assets/ollie01.svg";
 import ollie02 from "../../assets/ollie02.svg";
 
 function Oboarding() {
@@ -68,15 +65,7 @@ function Oboarding() {
         </Controlls>
       </Content>
 
-      <ChatBot>
-        <ChatBalloon>
-          <strong>Precisando de ajuda?</strong>
-        </ChatBalloon>
-
-        <BotImage>
-          <img src={ollie01} alt="" />
-        </BotImage>
-      </ChatBot>
+      <BotHelp />
     </Container>
   );
 }

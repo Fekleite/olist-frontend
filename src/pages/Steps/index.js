@@ -10,14 +10,11 @@ import {
   NextButton,
   Pagination,
   CountPage,
-  ChatBot,
-  ChatBalloon,
-  BotImage,
 } from "./styles";
 
 import NavBar from "../../components/NavBar";
+import BotHelp from "../../components/BotHelp";
 
-import ollie01 from "../../assets/ollie01.svg";
 import ollie02 from "../../assets/ollie02.svg";
 
 function Steps() {
@@ -56,15 +53,7 @@ function Steps() {
         </Controlls>
       </Content>
 
-      <ChatBot>
-        <ChatBalloon>
-          <strong>Precisando de ajuda?</strong>
-        </ChatBalloon>
-
-        <BotImage>
-          <img src={ollie01} alt="" />
-        </BotImage>
-      </ChatBot>
+      <BotHelp />
     </Container>
   );
 }
