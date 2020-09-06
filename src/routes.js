@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Onboarding from "./pages/Oboarding";
 import Steps from "./pages/Steps";
+import NewProduct from "./pages/NewProduct";
 
 function Routes() {
   return (
@@ -15,6 +16,7 @@ function Routes() {
       <Route path="/profile" component={Profile} exact />
       <Route path="/register" component={Chat} exact />
       <Route path="/login" component={Login} exact />
+      <Route path="/new-product" component={NewProduct} exact />
     </BrowserRouter>
   );
 }
