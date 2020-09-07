@@ -18,10 +18,22 @@ import NavBar from "../../components/NavBar";
 import BotHelp from "../../components/BotHelp";
 import Lightbox from "../../components/Lightbox";
 
-import image from "../../assets/monitor2.png";
+import api from "../../services/api";
 
 function ProductRegister() {
   const [visibility, setVisibility] = useState(false);
+  const [name, setName] = useState("");
+  const [photo, setPhoto] = useState("");
+  const [brand, setBrand] = useState("");
+  const [price, setPrice] = useState("");
+
+  const token = sessionStorage.getItem("@olist/token");
+
+  const config = {
+    headers: {
+      Authorization: `token ${token}`,
+    },
+  };
 
   function handleLightbox() {
     setVisibility(!visibility);
@@ -29,6 +41,27 @@ function ProductRegister() {
 
   function handleClose(v) {
     setVisibility(!v);
+  }
+
+  function handleApi(e) {
+    e.preventDefault();
+
+    const apiData = {
+      foto: photo,
+      titulo: name,
+      descricao: brand,
+      preco: price,
+    };
+
+    api
+      .post("produtos", apiData, config)
+      .then((res) => {
+        console.log(res);
+        setVisibility(!visibility);
+      })
+      .catch((err) => console.log(err));
+
+    console.log(apiData);
   }
 
   return (
@@ -49,17 +82,17 @@ function ProductRegister() {
             <MdCheck size={20} color="#0DC78B" />
 
             <Text>
-              <h3>Produto encontrado</h3>
+              <h3>Novo produto</h3>
 
               <p>
-                Para vender este produto, preencha as informações solicitadas.
+                Para cadastrar o produto, preencha as informações solicitadas.
                 Tem dúvida sobre o cadastro rápido? <strong>Saiba mais</strong>
               </p>
             </Text>
           </Description>
 
           <FormContainer>
-            <header>
+            {/* <header>
               <img src={image} alt="" />
 
               <ProductText>
@@ -74,12 +107,43 @@ function ProductRegister() {
                 <p>Monitor - 7P 7001 </p>
                 <p>69201911226010 </p>
               </ProductText>
-            </header>
+            </header> */}
 
-            <form action="">
+            <form onSubmit={handleApi}>
+              <label htmlFor="name">nome*</label>
+              <InputGroup>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <input
+                  type="text"
+                  id="brand"
+                  name="brand"
+                  onChange={(e) => setBrand(e.target.value)}
+                />
+              </InputGroup>
+
+              <label htmlFor="img_url">url da foto*</label>
+              <InputGroup>
+                <input
+                  type="url"
+                  id="img_url"
+                  name="img_url"
+                  onChange={(e) => setPhoto(e.target.value)}
+                />
+              </InputGroup>
+
               <label htmlFor="price">preço*</label>
               <InputGroup>
-                <input type="text" id="price" name="price" />
+                <input
+                  type="text"
+                  id="price"
+                  name="price"
+                  onChange={(e) => setPrice(e.target.value)}
+                />
                 <input type="text" id="promotionPrice" name="promotionPrice" />
                 <MdInfo color="#EAEAF4" />
               </InputGroup>
@@ -137,11 +201,11 @@ function ProductRegister() {
 
               <label htmlFor="code">meu codigo*</label>
               <InputGroup>
-                <input type="number" id="code" name="code" />
+                <input type="text" id="code" name="code" />
                 <MdInfo color="#EAEAF4" />
               </InputGroup>
 
-              <button>vender este produto</button>
+              <button type="submit">vender este produto</button>
             </form>
           </FormContainer>
         </RegisterContainer>

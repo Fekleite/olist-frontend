@@ -57,6 +57,18 @@ export const DropDown = styled.div`
   }
 `;
 
+export const UserLink = styled.div`
+  display: flex;
+  align-items: center;
+  button {
+    margin-left: 0.8rem;
+    background: transparent;
+    border: none;
+    color: var(--color-primary);
+    cursor: pointer;
+  }
+`;
+
 export const Profile = styled.div`
   span {
     display: flex;

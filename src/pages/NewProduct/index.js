@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import {
@@ -18,7 +18,27 @@ import NavBar from "../../components/NavBar";
 import BotHelp from "../../components/BotHelp";
 import Product from "../../components/Product";
 
+import api from "../../services/api";
+
 function NewProduct() {
+  const token = sessionStorage.getItem("@olist/token");
+  const [products, setProducts] = useState(false);
+
+  const config = {
+    headers: {
+      Authorization: `token ${token}`,
+    },
+  };
+
+  useEffect(() => {
+    api
+      .get("produtos", config)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  }, [config]);
+
   return (
     <Container>
       <NavBar />
@@ -51,18 +71,20 @@ function NewProduct() {
         </Text>
 
         <Results>
-          <NumberResults>1 produto encontrado</NumberResults>
+          <NumberResults>nenhum produto encontrado</NumberResults>
+          {products && (
+            <>
+              <Header>
+                <h4>produtos</h4>
+                <h4>atributos</h4>
+                <h4>marca</h4>
+              </Header>
 
-          <Header>
-            <h4>produtos</h4>
-            <h4>atributos</h4>
-            <h4>marca</h4>
-          </Header>
-
-          <Products>
-            <Product />
-            <Product />
-          </Products>
+              <Products>
+                <Product />
+              </Products>
+            </>
+          )}
         </Results>
       </Content>
 

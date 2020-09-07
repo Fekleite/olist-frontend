@@ -25,6 +25,7 @@ import InsightItem from "../../components/InsightItem";
 import Badges from "../../components/Badges";
 
 function Profile() {
+  const name = localStorage.getItem("@olist/username");
   return (
     <Container>
       <NavBar />
@@ -36,7 +37,7 @@ function Profile() {
           <Photo>
             <img src={profile} alt="" />
           </Photo>
-          <h3>Caroline Camargo</h3>
+          <h3>{name}</h3>
           <Info>
             <p>Lojista Iniciante</p>
             <span>|</span>

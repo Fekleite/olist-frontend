@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import {
   Container,
@@ -20,6 +20,7 @@ import api from "../../services/api";
 function Login() {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
 
   function handleApi(e) {
     e.preventDefault();
@@ -33,6 +34,9 @@ function Login() {
       .post("login", apiData)
       .then((res) => {
         console.log(res);
+        setLoggedIn(true);
+        sessionStorage.setItem("@olist/token", res.data.token);
+        localStorage.setItem("@olist/username", res.data.nome);
       })
       .catch((err) => console.log(err));
 
@@ -41,6 +45,8 @@ function Login() {
 
   return (
     <Container>
+      {loggedIn && <Redirect to="/home" />}
+
       <Info>
         <Bot>
           <img src={ollie02} alt="" />
