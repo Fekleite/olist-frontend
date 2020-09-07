@@ -75,6 +75,10 @@ export const FormContainer = styled.div`
       padding: 0 1.6rem;
       font-size: 1.4rem;
       color: var(--color-text);
+
+      &:focus {
+        border: 2px solid var(--color-primary);
+      }
     }
 
     button {
