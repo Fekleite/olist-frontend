@@ -9,8 +9,6 @@ import {
   Description,
   Text,
   FormContainer,
-  ProductText,
-  KeyWords,
   InputGroup,
 } from "./styles";
 

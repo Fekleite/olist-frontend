@@ -35,6 +35,7 @@ function NewProduct() {
       .get("produtos", config)
       .then((res) => {
         console.log(res);
+        setProducts(res.data);
       })
       .catch((err) => console.log(err));
   }, [config]);
