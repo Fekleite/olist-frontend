@@ -41,7 +41,7 @@ function NewProduct() {
             <p>não encontrou o produto?</p>
 
             <button>
-              <Link to="/steps">Cadastrar novo produto</Link>
+              <Link to="/quick-registration">Cadastrar novo produto</Link>
             </button>
           </AddNewProduct>
         </SearchContainer>

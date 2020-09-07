@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { MdKeyboardArrowLeft, MdCheck, MdInfo } from "react-icons/md";
 
@@ -16,13 +16,25 @@ import {
 
 import NavBar from "../../components/NavBar";
 import BotHelp from "../../components/BotHelp";
+import Lightbox from "../../components/Lightbox";
 
 import image from "../../assets/monitor2.png";
 
 function ProductRegister() {
+  const [visibility, setVisibility] = useState(false);
+
+  function handleLightbox() {
+    setVisibility(!visibility);
+  }
+
+  function handleClose(v) {
+    setVisibility(!v);
+  }
+
   return (
     <Container>
       <NavBar />
+      <Lightbox visibility={visibility} close={(e, v) => handleClose} />
 
       <Content>
         <Link to="/new-product">
@@ -30,7 +42,7 @@ function ProductRegister() {
           <p>voltar para pesquisa</p>
         </Link>
 
-        <h2>cadastro rápido</h2>
+        <h2 onClick={handleLightbox}>cadastro rápido</h2>
 
         <RegisterContainer>
           <Description>

@@ -12,7 +12,7 @@ import ProductRegister from "./pages/ProductRegister";
 function Routes() {
   return (
     <BrowserRouter>
-      <Route path="/" component={Onboarding} exact />
+      <Route path="/home" component={Onboarding} exact />
       <Route path="/steps" component={Steps} exact />
       <Route path="/profile" component={Profile} exact />
       <Route path="/register" component={Chat} exact />

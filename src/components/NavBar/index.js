@@ -13,7 +13,7 @@ function NavBar() {
         <img src={logo} alt="Logo olist" />
 
         <LinkGroup>
-          <Link to="/profile">início</Link>
+          <Link to="/home">início</Link>
           <Link to="/profile">pedidos</Link>
 
           <DropLink primary={true}>
