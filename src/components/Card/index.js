@@ -19,7 +19,8 @@ function Card({ title, text, link }) {
       </Content>
 
       <Link to="/profile">
-        {link} <MdKeyboardArrowRight size={20} color="#0C29D0" />
+        {link}{" "}
+        {link !== "" ? <MdKeyboardArrowRight size={20} color="#0C29D0" /> : ""}
       </Link>
     </Container>
   );

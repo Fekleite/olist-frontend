@@ -11,6 +11,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   width: 76%;
+  min-height: 85vh;
   margin: auto;
   margin-top: 2.3rem;
   background: #fff;
@@ -20,7 +21,14 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   transition: all 0.3s;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   h2 {
     font-weight: 600;
@@ -30,8 +38,14 @@ export const Content = styled.div`
 
   h4 {
     font-weight: normal;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     text-align: center;
+  }
+
+  p {
+    font-weight: normal;
+    font-size: 1.8rem;
+    text-align: left;
   }
 `;
 
@@ -50,12 +64,17 @@ export const Bot = styled.div`
     position: absolute;
     bottom: 0;
   }
+
+  #progress_img {
+    position: absolute;
+    top: 40px;
+    left: 140px;
+  }
 `;
 
 export const Controlls = styled.div`
   width: 100%;
   padding: 3.2rem;
-  margin-top: 18rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -104,4 +123,28 @@ export const CountPage = styled.div`
   border-radius: 50%;
   background: #eaeaf4;
   margin: 0 0.8rem;
+`;
+
+export const ButtonLetGo = styled.button`
+  background: #0c29d0;
+  border-radius: 4px;
+  padding: 13px 32px;
+  font-weight: bold;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+
+  border: none;
+
+  a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+`;
+
+export const Options = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 1.6rem;
 `;
