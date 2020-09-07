@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { MdArrowBack, MdSend } from "react-icons/md";
 
 import {
@@ -22,6 +23,8 @@ import TextBalloon from "../../components/TextBalloon";
 import UserBalloon from "../../components/UserBalloon";
 
 import { talksBot, categories } from "../../utils/chatbot";
+
+import api from "../../services/api";
 
 function Chat() {
   const [ask, setAsk] = useState(0);
@@ -60,14 +63,33 @@ function Chat() {
     }, 3000);
   }
 
+  function handleApi() {
+    const apiData = {
+      password: userData[userData.length - 1],
+      email: userData[1],
+      cnpj: userData[2],
+      nome: userData[0],
+      produtos: userData[3],
+    };
+
+    api
+      .post("cadastro", apiData)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+
+    console.log(apiData);
+  }
+
   return (
     <Back>
       <Container>
         <HeaderChat>
-          <a href="/">
+          <Link to="/home">
             <MdArrowBack size={21} />
             <p>Voltar para o site</p>
-          </a>
+          </Link>
 
           <img src={logo} alt="Logo Olist" />
         </HeaderChat>
@@ -147,7 +169,7 @@ function Chat() {
             )}
 
             {ask === 10 ? (
-              <button onClick={handleRegister}>
+              <button onClick={handleApi}>
                 <p>Finalizar cadastro</p>
               </button>
             ) : (
