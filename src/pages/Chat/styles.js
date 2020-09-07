@@ -63,6 +63,16 @@ export const InputGroup = styled.div`
   justify-content: space-between;
   align-items: center;
 
+  select {
+    width: 60%;
+    height: 75%;
+    border: none;
+    font-weight: normal;
+    font-size: 1.6rem;
+    background: #ffffff;
+    outline: none;
+  }
+
   input {
     width: 80%;
     height: 75%;
@@ -94,18 +104,52 @@ export const InputGroup = styled.div`
 
 export const ChatContent = styled.div`
   width: 100%;
-  height: auto;
+  height: 100%;
   display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  padding-right: 0.8rem;
+`;
+
+export const BotTalk = styled.div`
+  width: 100%;
+  height: auto;
+  display: ${(props) => (props.disabled ? "none" : "flex")};
   align-items: center;
+  margin-bottom: 0.8rem;
+`;
+
+export const UserTalk = styled.div`
+  width: 100%;
+  height: auto;
+  display: ${(props) => (props.disabled ? "none" : "flex")};
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 0.8rem;
 `;
 
 export const Thumb = styled.div`
-  width: 7.2rem;
-  height: 7.2rem;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   background: var(--color-light-blue02);
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 1.6rem;
+`;
+
+export const ThumbUser = styled.div`
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--color-light-blue02);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1.6rem;
+
+  img {
+    width: 100%;
+  }
 `;
