@@ -16,10 +16,11 @@ export const Content = styled.div`
   background: #fff;
   box-shadow: 0px 4px 20px rgba(15, 27, 103, 0.15);
   border-radius: 10px;
-  padding: 6.4rem 0 0 0;
+  padding: 6.4rem 4rem 0 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all 0.3s;
 
   h2 {
     font-weight: 600;
@@ -30,6 +31,7 @@ export const Content = styled.div`
   h4 {
     font-weight: normal;
     font-size: 1.6rem;
+    text-align: center;
   }
 `;
 
@@ -80,20 +82,26 @@ export const NextButton = styled.button`
   border-radius: 4px;
   border: none;
   padding: 0.8rem;
-  cursor: pointer;
+  opacity: ${(props) => (props.disabled ? 0.3 : 1)};
+  cursor: ${(props) => (props.disabled ? "initial" : "pointer")};
 `;
 
 export const Pagination = styled.div`
   display: flex;
   align-items: center;
+
+  div:nth-child(${(props) => props.number}) {
+    background: #0dc78b;
+    width: 16px;
+    height: 16px;
+    box-shadow: 0px 4px 5px rgba(49, 47, 95, 0.1);
+  }
 `;
 
 export const CountPage = styled.div`
-  width: ${(props) => (props.selected ? "16px" : "10px")};
-  height: ${(props) => (props.selected ? "16px" : "10px")};
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background: ${(props) => (props.selected ? " #0dc78b" : "#eaeaf4")};
+  background: #eaeaf4;
   margin: 0 0.8rem;
-  box-shadow: ${(props) =>
-    props.selected ? " 0px 4px 5px rgba(49, 47, 95, 0.1)" : "none"};
 `;
