@@ -31,6 +31,8 @@ export const LinkGroup = styled.div`
 `;
 
 export const DropLink = styled.div`
+  position: relative;
+
   span {
     display: flex;
     align-items: flex-start;
@@ -39,6 +41,19 @@ export const DropLink = styled.div`
     font-size: 1.4rem;
     color: ${(props) => (props.primary ? "var(--color-primary)" : "#312F5F")};
     cursor: pointer;
+  }
+`;
+
+export const DropDown = styled.div`
+  position: absolute;
+  width: 16rem;
+
+  a {
+    text-decoration: none;
+    font-weight: 600;
+    margin-right: 2.1rem;
+    font-size: 1.4rem;
+    color: var(--color-primary);
   }
 `;
 
