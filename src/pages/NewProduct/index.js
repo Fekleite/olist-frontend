@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import {
@@ -10,19 +10,15 @@ import {
   Text,
   Results,
   NumberResults,
-  Header,
-  Products,
 } from "./styles";
 
 import NavBar from "../../components/NavBar";
 import BotHelp from "../../components/BotHelp";
-import Product from "../../components/Product";
 
 import api from "../../services/api";
 
 function NewProduct() {
   const token = sessionStorage.getItem("@olist/token");
-  const [products, setProducts] = useState(false);
 
   const config = {
     headers: {
@@ -35,7 +31,6 @@ function NewProduct() {
       .get("produtos", config)
       .then((res) => {
         console.log(res);
-        setProducts(res.data);
       })
       .catch((err) => console.log(err));
   }, [config]);
@@ -73,19 +68,6 @@ function NewProduct() {
 
         <Results>
           <NumberResults>nenhum produto encontrado</NumberResults>
-          {products && (
-            <>
-              <Header>
-                <h4>produtos</h4>
-                <h4>atributos</h4>
-                <h4>marca</h4>
-              </Header>
-
-              <Products>
-                <Product />
-              </Products>
-            </>
-          )}
         </Results>
       </Content>
 
