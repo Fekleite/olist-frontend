@@ -20,21 +20,12 @@ import step2 from "../../assets/step2.svg";
 import step3 from "../../assets/step3.svg";
 import step4 from "../../assets/step4.svg";
 import step5 from "../../assets/step5.svg";
-import progressBar from "../../assets/progressBar.svg";
 
 import data from "../../data/data.json";
 
 function Steps() {
   const [countPage, setCountPage] = useState(0);
-  const images = [
-    ollie02,
-    step2,
-    step3,
-    step3,
-    step4,
-    step5,
-    { ollie02, progressBar },
-  ];
+  const images = [ollie02, step2, step3, step4, step5, ollie02];
 
   function handleCountPageNext() {
     if (countPage < 6) {
