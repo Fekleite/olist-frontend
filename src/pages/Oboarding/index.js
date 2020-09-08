@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import {
@@ -19,6 +19,13 @@ import BotHelp from "../../components/BotHelp";
 import ollie02 from "../../assets/ollie02.svg";
 
 function Oboarding() {
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    const name = localStorage.getItem("@olist/username");
+    setUsername(name);
+  }, []);
+
   return (
     <Container>
       <NavBar />
@@ -32,7 +39,7 @@ function Oboarding() {
           </Balloon>
         </Bot>
 
-        <h2>bem-vinda Caroline, dê seus primeiro passos com olist!</h2>
+        <h2>bem-vinda {username}, dê seus primeiro passos com olist!</h2>
         <h4>
           conclua todas as etapas para ativar a sua conta e começar a vender
         </h4>
