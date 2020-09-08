@@ -38,7 +38,10 @@ function Login() {
         sessionStorage.setItem("@olist/token", res.data.token);
         localStorage.setItem("@olist/username", res.data.nome);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        alert("Email ou senha incorretos, tente novamente!");
+      });
 
     console.log(apiData);
   }

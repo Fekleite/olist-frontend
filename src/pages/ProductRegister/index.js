@@ -55,7 +55,7 @@ function ProductRegister() {
       .post("produtos", apiData, config)
       .then((res) => {
         console.log(res);
-        setVisibility(!visibility);
+        setVisibility(true);
       })
       .catch((err) => console.log(err));
 

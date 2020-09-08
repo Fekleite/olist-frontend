@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { MdArrowBack, MdSend } from "react-icons/md";
 
 import {
@@ -32,6 +32,8 @@ function Chat() {
   const [name, setName] = useState("");
   const [pass, setPass] = useState("••••••");
   const [userData, setUserData] = useState([]);
+
+  const [red, setRed] = useState(false);
 
   function handleRegister() {
     const valueInput = document.getElementsByName("resp")[0].value;
@@ -76,8 +78,13 @@ function Chat() {
       .post("cadastro", apiData)
       .then((res) => {
         console.log(res);
+        alert("Usuário cadastrado com sucesso!");
+        setRed(true);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        alert("Não foi possível cadastrar o usuário!");
+      });
 
     console.log(apiData);
   }
@@ -85,8 +92,9 @@ function Chat() {
   return (
     <Back>
       <Container>
+        {red && <Redirect to="/" />}
         <HeaderChat>
-          <Link to="/home">
+          <Link to="/">
             <MdArrowBack size={21} />
             <p>Voltar para o site</p>
           </Link>
